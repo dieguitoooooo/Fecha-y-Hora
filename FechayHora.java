@@ -10,7 +10,6 @@ public class FechayHora
     // instance variables - replace the example below with your own
     private CalendarioBasico dia;
     private ClockDisplay hora;
-    private int minutos;
 
     /**
      * Constructor for objects of class FechayHora
@@ -29,9 +28,24 @@ public class FechayHora
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    /*public int getFechayHora()
+    public String getFechayHora()
     {
         // put your code here
-        return "";
-    }*/
+        return dia.obtenerFecha() + " " + hora.getTime();  
+    }
+    
+    public void avanzar()
+    {
+        hora.timeTick();
+        if(hora.getTime().equals("00:00"))
+        {
+            dia.avanzarFecha();
+        }
+    }
+    
+    public void fijarFechaYHora(int dd, int mm, int aaaa, int hr, int min)
+    {
+        dia.fijarFecha(dd,mm,aaaa);
+        hora.setTime(hr,min);
+    }
 }
